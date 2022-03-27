@@ -6,26 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TryCat</title>
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/app.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+{{--    <script src="/js/app.js" defer></script>--}}
 </head>
 <body>
-<div id="game" class="">
-
-{{--    <div class="row">--}}
-{{--        <div class="tile"></div>--}}
-{{--        <div class="tile"></div>--}}
-{{--        <div class="tile"></div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        <div class="tile"></div>--}}
-{{--        <div class="tile"></div>--}}
-{{--        <div class="tile"></div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        <div class="tile"></div>--}}
-{{--        <div class="tile"></div>--}}
-{{--        <div class="tile"></div>--}}
-{{--    </div>--}}
+<div id="game" x-data="{ guessesAllowed: 4, wordLength: 3 }">
+    <template x-for="row in Array.from({ length: guessesAllowed })">
+        <div class="row">
+            <template x-for="tile in Array.from({ length: wordLength })">
+                <div class="tile"></div>
+            </template>
+        </div>
+    </template>
 </div>
 </body>
 </html>
