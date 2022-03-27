@@ -11,9 +11,9 @@
 </head>
 <body>
 <div id="game" x-data="{ guessesAllowed: 4, wordLength: 3 }">
-    <template x-for="row in Array.from({ length: guessesAllowed })">
+    <template x-for="row in guessesAllowed">
         <div class="row">
-            <template x-for="tile in Array.from({ length: wordLength })">
+            <template x-for="tile in wordLength">
                 <div class="tile"></div>
             </template>
         </div>
