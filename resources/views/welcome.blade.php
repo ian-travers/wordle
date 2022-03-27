@@ -6,25 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TryCat</title>
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js" defer></script>
 </head>
 <body>
 <div id="game" class="">
-    <div class="row">
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-    </div>
-    <div class="row">
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-    </div>
-    <div class="row">
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-    </div>
+
+{{--    <div class="row">--}}
+{{--        <div class="tile"></div>--}}
+{{--        <div class="tile"></div>--}}
+{{--        <div class="tile"></div>--}}
+{{--    </div>--}}
+{{--    <div class="row">--}}
+{{--        <div class="tile"></div>--}}
+{{--        <div class="tile"></div>--}}
+{{--        <div class="tile"></div>--}}
+{{--    </div>--}}
+{{--    <div class="row">--}}
+{{--        <div class="tile"></div>--}}
+{{--        <div class="tile"></div>--}}
+{{--        <div class="tile"></div>--}}
+{{--    </div>--}}
 </div>
 </body>
 </html>
