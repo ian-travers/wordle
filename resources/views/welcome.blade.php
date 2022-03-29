@@ -18,7 +18,7 @@
     <template x-for="row in board">
         <div class="row">
             <template x-for="tile in row">
-                <div class="tile" x-text="tile"></div>
+                <div class="tile" x-text="tile.letter"></div>
             </template>
         </div>
     </template>
