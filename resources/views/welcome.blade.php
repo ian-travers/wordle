@@ -10,7 +10,11 @@
     <script src="/js/app.js"></script>
 </head>
 <body>
-<div id="game" x-data="game">
+<div
+    id="game"
+    x-data="game"
+    @keyup.window="onKeyPress($event.key)"
+>
     <template x-for="row in board">
         <div class="row">
             <template x-for="tile in row">
