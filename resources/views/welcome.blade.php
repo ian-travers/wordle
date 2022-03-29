@@ -11,10 +11,10 @@
 </head>
 <body>
 <div id="game" x-data="game">
-    <template x-for="row in guessesAllowed">
+    <template x-for="row in board">
         <div class="row">
-            <template x-for="tile in wordLength">
-                <div class="tile"></div>
+            <template x-for="tile in row">
+                <div class="tile" x-text="tile"></div>
             </template>
         </div>
     </template>
