@@ -1,4 +1,5 @@
-let grid = document.querySelector('#game')
-
-let guessesAllowed = 4
-let wordLength = 3
+document.addEventListener('alpine:init', () => {
+    Alpine.data('game', () => {
+        return { guessesAllowed: 4, wordLength: 3 }
+    })
+})

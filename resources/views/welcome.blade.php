@@ -7,10 +7,10 @@
     <title>TryCat</title>
     <link rel="stylesheet" href="/css/app.css">
     <script src="//unpkg.com/alpinejs" defer></script>
-{{--    <script src="/js/app.js" defer></script>--}}
+    <script src="/js/app.js"></script>
 </head>
 <body>
-<div id="game" x-data="{ guessesAllowed: 4, wordLength: 3 }">
+<div id="game" x-data="game">
     <template x-for="row in guessesAllowed">
         <div class="row">
             <template x-for="tile in wordLength">
