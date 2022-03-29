@@ -13,13 +13,16 @@ document.addEventListener('alpine:init', () => {
             },
 
             onKeyPress(key) {
-                this.board[this.currentRowIndex][this.currentTileIndex] = key
+                // validate: only letter
+                if (/^[A-z]$/.test(key)) {
+                    this.board[this.currentRowIndex][this.currentTileIndex] = key
 
-                if (this.currentTileIndex === this.wordLength - 1) {
-                    this.currentRowIndex++
-                    this.currentTileIndex = 0
-                } else {
-                    this.currentTileIndex++
+                    if (this.currentTileIndex === this.wordLength - 1) {
+                        this.currentRowIndex++
+                        this.currentTileIndex = 0
+                    } else {
+                        this.currentTileIndex++
+                    }
                 }
             }
         }
