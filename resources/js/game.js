@@ -7,8 +7,16 @@ export default {
     state: 'active', // active, complete
     message: '',
 
+    get currentRow() {
+        return this.board[this.currentRowIndex]
+    },
+
     get currentGuess() {
         return this.currentRow.map(tile => tile.letter).join('')
+    },
+
+    get remainingGuesses() {
+        return this.guessesAllowed - this.currentRowIndex - 1
     },
 
     init() {
@@ -38,37 +46,28 @@ export default {
     },
 
     submitGuess() {
-        let guess = this.currentGuess
-
-        if (guess.length < this.theWord.length) {
+        if (this.currentGuess.length < this.theWord.length) {
             return
         }
 
-        this.refreshTileStatusForCurrentRow()
-
-        if (guess === this.theWord) {
-            this.message = 'You win!'
-        } else if (this.guessesAllowed === this.currentRowIndex + 1) {
-            this.message = 'Game over. You lose.'
-            this.state = 'complete'
-        } else {
-            this.message = 'Incorrect'
-            this.currentRowIndex++
+        for (let tile of this.currentRow) {
+            tile.updateStatus(this.currentGuess, this.theWord)
         }
-    },
 
-    refreshTileStatusForCurrentRow() {
-        // update the tile colors
-        this.currentRow.forEach((tile, index) => {
-            tile.status = this.theWord.includes(tile.letter) ? 'present' : 'absent';
+        if (this.currentGuess === this.theWord) {
+            this.state = 'complete'
 
-            if (this.currentGuess[index] === this.theWord[index]) {
-                tile.status = 'correct'
-            }
-        })
-    },
+            return this.message = 'You win!'
+        }
 
-    get currentRow() {
-        return this.board[this.currentRowIndex]
+        if (this.remainingGuesses === 0) {
+            this.state = 'complete'
+
+            return this.message = 'Game over. You lose.'
+        }
+
+        this.currentRowIndex++
+
+        return this.message = 'Incorrect'
     }
 }
