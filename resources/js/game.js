@@ -1,10 +1,12 @@
-import Tile from "./Tile";
+import Tile from "./Tile"
+import words from "./words"
 
 export default {
     theWord: 'cat',
     guessesAllowed: 4,
     currentRowIndex: 0,
     state: 'active', // active, complete
+    errors: false,
     message: '',
 
     get currentRow() {
@@ -27,6 +29,7 @@ export default {
 
     onKeyPress(key) {
         this.message = ''
+        this.errors = false
 
         if (/^[A-z]$/.test(key)) {
             this.fillTile(key)
@@ -62,6 +65,12 @@ export default {
             return
         }
 
+        if (!words.includes(this.currentGuess.toUpperCase())) {
+            this.errors = true
+
+            return this.message = 'Invalid word.'
+        }
+
         for (let tile of this.currentRow) {
             tile.updateStatus(this.currentGuess, this.theWord)
         }
@@ -80,6 +89,6 @@ export default {
 
         this.currentRowIndex++
 
-        return this.message = 'Incorrect'
+        return this.message = 'Incorrect.'
     }
 }
