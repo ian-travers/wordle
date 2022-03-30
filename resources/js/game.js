@@ -3,7 +3,6 @@ import Tile from "./Tile";
 export default {
     theWord: 'cat',
     guessesAllowed: 4,
-    wordLength: 3,
     currentRowIndex: 0,
     state: 'active', // active, complete
     message: '',
@@ -14,7 +13,7 @@ export default {
 
     init() {
         this.board = Array.from({ length: this.guessesAllowed }, () => {
-            return Array.from({ length: this.wordLength }, () => new Tile)
+            return Array.from({ length: this.theWord.length }, () => new Tile)
         })
     },
 
@@ -41,7 +40,7 @@ export default {
     submitGuess() {
         let guess = this.currentGuess
 
-        if (guess.length < this.wordLength) {
+        if (guess.length < this.theWord.length) {
             return
         }
 
