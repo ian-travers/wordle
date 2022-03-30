@@ -5,6 +5,8 @@ export default {
     guessesAllowed: 4,
     wordLength: 3,
     currentRowIndex: 0,
+    state: 'active', // active, complete
+    message: '',
 
     get currentGuess() {
         return this.currentRow.map(tile => tile.letter).join('')
@@ -17,6 +19,8 @@ export default {
     },
 
     onKeyPress(key) {
+        this.message = ''
+
         if (/^[A-z]$/.test(key)) {
             this.fillTile(key)
         } else if (key === 'Enter') {
@@ -42,10 +46,12 @@ export default {
         }
 
         if (guess === this.theWord) {
-            alert('You win!')
+            this.message = 'You win!'
+        } else if (this.guessesAllowed === this.currentRowIndex + 1) {
+            this.message = 'Game over. You lose.'
+            this.state = 'complete'
         } else {
-            alert('Nope')
-
+            this.message = 'Incorrect'
             this.currentRowIndex++
         }
     },
