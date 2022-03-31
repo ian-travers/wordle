@@ -1,8 +1,8 @@
 import Tile from "./Tile"
-import words from "./words"
+import { theWords, allWords } from "./words"
 
 export default {
-    theWord: 'cat',
+    theWord: theWords[Math.floor(Math.random() * theWords.length)],
     guessesAllowed: 4,
     currentRowIndex: 0,
     state: 'active', // active, complete
@@ -79,7 +79,7 @@ export default {
             return
         }
 
-        if (!words.includes(this.currentGuess.toUpperCase())) {
+        if (!allWords.includes(this.currentGuess.toUpperCase())) {
             this.errors = true
 
             return this.message = 'Invalid word.'

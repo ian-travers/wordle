@@ -1,4 +1,8 @@
-export default [
+export let theWords = [
+    "CAT", "DOG", "HIT", "MOM", "DAD", "BIG", "KID", "HAT", "FAT"
+]
+
+export let allWords = [
     "AAH",
     "AAL",
     "AAS",
