@@ -30,6 +30,15 @@
             </div>
         </template>
     </div>
+    <div id="keyboard">
+        <template x-for="row in letters">
+            <div class="row">
+                <template x-for="key in row">
+                    <button x-text="key"></button>
+                </template>
+            </div>
+        </template>
+    </div>
     <output x-text="message"></output>
 </main>
 
