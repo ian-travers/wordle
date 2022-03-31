@@ -11,13 +11,17 @@
 </head>
 <body>
 <main
-    class=""
     x-data="game"
     @keyup.window="onKeyPress($event.key)"
 >
-    <h1 aria-label="TryCat">
-        <img src="/images/trycat-logo.svg" alt="logo">
-    </h1>
+    <header>
+        <h1 aria-label="TryCat">
+            <a href="/">
+                <img id="logo" src="/images/trycat-logo.svg" alt="Cat with glasses and curly tail above the text TryCat.">
+            </a>
+        </h1>
+        <output x-text="message"></output>
+    </header>
     <div id="game">
         <template x-for="(row, index) in board">
             <div
@@ -44,8 +48,6 @@
             </div>
         </template>
     </div>
-    <output x-text="message"></output>
 </main>
-
 </body>
 </html>

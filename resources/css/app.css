@@ -113,20 +113,40 @@ h1 {
     background: var(--absent-color);
 }
 
+/**
+ * Header Styles
+ */
+
 header {
     position: relative;
+}
+
+h1 {
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+}
+
+#logo {
+    width: 100px;
+}
+
+@media (min-width: 900px) {
+    #logo {
+        width: 150px;
+    }
 }
 
 output {
     display: block;
     font-weight: 500;
     font-style: italic;
-    font-size: 20px;
+    font-size: 17px;
     margin-top: 1rem;
     position: absolute;
     top: 0;
-    right: 1rem;
-    width: 200px;
+    left: calc(100% + 10px);
+    width: 150px;
 }
 
 output:empty {
